@@ -2,7 +2,11 @@
 
 {% block header_title %}
     <h2>
+        {% if results %}
         {{ 'search.header.title.index'|trans({'%term%' : term})|capitalize }}
+        {% else %}
+            {{ 'search.header.title.indexWithoutTerm'|trans|capitalize }}
+        {% endif %}
     </h2>
 {% endblock %}
 
@@ -10,22 +14,18 @@
     {{ form(form) }}
 
     {% if results %}
-
-        <h3>{{ 'search.header.title.results'|trans }}</h3>
-
+        <h3>{{ 'search.header.title.results'|trans({'%term%' : term})|capitalize }}</h3>
+        <div class="list-group">
         {% for result in results %}
-            <div class="row">
-                <a href="{{ result.route }}">
+                <a href="{{ result.route }}" class="list-group-item">
                     {{ result.title }}
-                    <small>
+                    <span class="badge badge-info">
                         {{ result.bundle }}
-                    </small>
+                    </span>
                 </a>
-            </div>
         {% endfor %}
-
+        </div>
     {% endif %}
-
 {% endblock %}
 
 

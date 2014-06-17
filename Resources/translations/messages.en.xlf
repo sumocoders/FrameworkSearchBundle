@@ -25,6 +25,14 @@
                 <source>search.header.title.index</source>
                 <target>searched for %term%</target>
             </trans-unit>
+            <trans-unit id="4154a02f6389dec989efed5757e0963e37b40179" resname="search.header.title.indexWithoutTerm">
+                <source>search.header.title.indexWithoutTerm</source>
+                <target>search</target>
+            </trans-unit>
+            <trans-unit id="4154a02f6389dec989efed5757e0963e37b40180" resname="search.header.title.results">
+                <source>search.header.title.results</source>
+                <target>results for %term%</target>
+            </trans-unit>
         </body>
     </file>
 </xliff>
