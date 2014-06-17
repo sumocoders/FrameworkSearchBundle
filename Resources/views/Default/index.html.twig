@@ -1,0 +1,31 @@
+{% extends '::base.html.twig' %}
+
+{% block header_title %}
+    <h2>
+        {{ 'search.header.title.index'|trans({'%term%' : term})|capitalize }}
+    </h2>
+{% endblock %}
+
+{% block main %}
+    {{ form(form) }}
+
+    {% if results %}
+
+        <h3>{{ 'search.header.title.results'|trans }}</h3>
+
+        {% for result in results %}
+            <div class="row">
+                <a href="{{ result.route }}">
+                    {{ result.title }}
+                    <small>
+                        {{ result.bundle }}
+                    </small>
+                </a>
+            </div>
+        {% endfor %}
+
+    {% endif %}
+
+{% endblock %}
+
+
