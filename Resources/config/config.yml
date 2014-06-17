@@ -1,0 +1,7 @@
+services:
+  kernel.listener.search_index_listener:
+    class: SumoCoders\FrameworkSearchBundle\EventListener\IndexListener
+    arguments:
+      - @doctrine.orm.entity_manager
+    tags:
+      - { name: kernel.event_listener, event: search.index.add, method: onIndexAdd }
