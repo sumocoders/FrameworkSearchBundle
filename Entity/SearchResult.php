@@ -53,7 +53,7 @@ class SearchResult
     /**
      * @param string $bundle
      */
-    public function setBundle($bundle)
+    protected function setBundle($bundle)
     {
         $this->bundle = $bundle;
     }
@@ -69,7 +69,7 @@ class SearchResult
     /**
      * @param string $class
      */
-    public function setClass($class)
+    protected function setClass($class)
     {
         $this->class = $class;
     }
@@ -85,7 +85,7 @@ class SearchResult
     /**
      * @param string $id
      */
-    public function setId($id)
+    protected function setId($id)
     {
         $this->id = $id;
     }
@@ -101,7 +101,7 @@ class SearchResult
     /**
      * @param string $route
      */
-    public function setRoute($route)
+    protected function setRoute($route)
     {
         $this->route = $route;
     }
@@ -117,7 +117,7 @@ class SearchResult
     /**
      * @param string $title
      */
-    public function setTitle($title)
+    protected function setTitle($title)
     {
         $this->title = $title;
     }
