@@ -31,6 +31,7 @@ public function registerBundles()
     // ...
     $bundles = array(
         // ...
+        new Knp\Bundle\PaginatorBundle\KnpPaginatorBundle(),
         new SumoCoders\FrameworkSearchBundle\SumoCodersFrameworkSearchBundle(),
     );
 }
