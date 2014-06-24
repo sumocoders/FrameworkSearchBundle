@@ -3,7 +3,7 @@
 namespace SumoCoders\FrameworkSearchBundle\EventListener;
 
 use Doctrine\ORM\EntityManager;
-use SumoCoders\FrameworkSearchBundle\Event\IndexEvent;
+use SumoCoders\FrameworkSearchBundle\Event\IndexUpdateEvent;
 
 class IndexListener
 {
@@ -23,14 +23,14 @@ class IndexListener
     /**
      * The actual listener, will store the objects in the database
      *
-     * @param IndexEvent $event
+     * @param IndexUpdateEvent $event
      */
-    public function onIndexAdd(IndexEvent $event)
+    public function onIndexUpdate(IndexUpdateEvent $event)
     {
         $objects = $event->getObjects();
 
         foreach ($objects as $indexItem) {
-            $this->em->persist($indexItem);
+            $this->em->merge($indexItem);
         }
 
         $this->em->flush();

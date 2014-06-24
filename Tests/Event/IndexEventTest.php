@@ -3,7 +3,7 @@
 namespace SumoCoders\FrameworkSearchBundle\Tests\Event;
 
 use SumoCoders\FrameworkSearchBundle\Entity\IndexItem;
-use SumoCoders\FrameworkSearchBundle\Event\IndexEvent;
+use SumoCoders\FrameworkSearchBundle\Event\IndexUpdateEvent;
 
 class IndexEventTest extends \PHPUnit_Framework_TestCase
 {
@@ -29,7 +29,7 @@ class IndexEventTest extends \PHPUnit_Framework_TestCase
      */
     public function testGettersAndSetters()
     {
-        $indexEvent = new IndexEvent();
+        $indexEvent = new IndexUpdateEvent();
 
         $objects = array(
             $this->createIndexItem(),

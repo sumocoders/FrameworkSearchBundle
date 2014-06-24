@@ -5,7 +5,7 @@ namespace SumoCoders\FrameworkSearchBundle\Event;
 use SumoCoders\FrameworkSearchBundle\Entity\IndexItem;
 use Symfony\Component\EventDispatcher\Event;
 
-class IndexEvent extends Event
+class IndexUpdateEvent extends Event
 {
     /**
      * @var array
