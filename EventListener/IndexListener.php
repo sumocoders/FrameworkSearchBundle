@@ -4,6 +4,7 @@ namespace SumoCoders\FrameworkSearchBundle\EventListener;
 
 use Doctrine\ORM\EntityManager;
 use SumoCoders\FrameworkSearchBundle\Event\IndexUpdateEvent;
+use SumoCoders\FrameworkSearchBundle\Event\IndexDeleteEvent;
 
 class IndexListener
 {
@@ -34,5 +35,20 @@ class IndexListener
         }
 
         $this->em->flush();
+    }
+
+    /**
+     * The actual listener, will delete indexitems from the database
+     *
+     * @param IndexDeleteEvent $event
+     */
+    public function onIndexDelete(IndexDeleteEvent $event)
+    {
+        $query = $this->em->createQuery(
+            'DELETE SumoCodersFrameworkSearchBundle:IndexItem i
+             WHERE i.otherId = :id AND i.objectType = :objectType'
+        )->setParameter('id', $event->getOtherId())
+            ->setParameter('objectType', $event->getObjectType());
+        $query->getResult();
     }
 }

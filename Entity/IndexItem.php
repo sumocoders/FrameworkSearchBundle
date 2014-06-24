@@ -154,5 +154,41 @@ class IndexItem
     {
         return $this->value;
     }
+
+    /**
+     * Create an array of search index items based on the object
+     *
+     * @param string $class
+     * @param string $id
+     * @param array  $properties
+     * @param mixed  $object
+     * @return array
+     */
+    public static function createMultipleObjectsBasedOnProperties($class, $id, array $properties, $object)
+    {
+        $indexItems = array();
+
+        foreach ($properties as $property) {
+            $value = null;
+            $method = array($object, 'get' . ucfirst($property));
+
+            if (is_callable($method)) {
+                $value = call_user_func($method);
+            } elseif (isset($object->$property)) {
+                $value = $object->$property;
+            }
+
+            if ($value !== null) {
+                $indexItems[] = new IndexItem(
+                    $class,
+                    $id,
+                    $property,
+                    $value
+                );
+            }
+        }
+
+        return $indexItems;
+    }
 }
 

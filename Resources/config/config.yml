@@ -5,3 +5,4 @@ services:
       - @doctrine.orm.entity_manager
     tags:
       - { name: kernel.event_listener, event: search.index.update, method: onIndexUpdate }
+      - { name: kernel.event_listener, event: search.index.delete, method: onIndexDelete }
