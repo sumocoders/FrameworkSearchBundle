@@ -13,16 +13,9 @@ use Doctrine\ORM\Mapping as ORM;
 class IndexItem
 {
     /**
-     * @var integer
-     *
-     * @ORM\Column(name="id", type="integer")
-     * @ORM\Id
-     * @ORM\GeneratedValue(strategy="AUTO")
-     */
-    protected $id;
-
-    /**
      * @var string
+     *
+     * @ORM\Id
      * @ORM\Column(name="objectType", type="string", length=255)
      */
     protected $objectType;
@@ -30,6 +23,7 @@ class IndexItem
     /**
      * @var string
      *
+     * @ORM\Id
      * @ORM\Column(name="otherId", type="string", length=255)
      */
     protected $otherId;
@@ -37,6 +31,7 @@ class IndexItem
     /**
      * @var string
      *
+     * @ORM\Id
      * @ORM\Column(name="field", type="string", length=255)
      */
     protected $field;
