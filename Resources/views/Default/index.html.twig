@@ -2,8 +2,8 @@
 
 {% block header_title %}
     <h2>
-        {% if results %}
-        {{ 'search.header.title.index'|trans({'%term%' : term})|capitalize }}
+        {% if term %}
+            {{ 'search.header.title.index'|trans({'%term%' : term})|capitalize }}
         {% else %}
             {{ 'search.header.title.indexWithoutTerm'|trans|capitalize }}
         {% endif %}
