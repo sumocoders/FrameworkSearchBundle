@@ -15,15 +15,17 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 class DefaultController extends Controller
 {
     /**
-     * @Route("/search/{term}")
+     * @Route("/search")
      * @Template()
      */
-    public function indexAction(Request $request, $term = null)
+    public function indexAction(Request $request)
     {
+        $term = $request->get('q');
         $form = $this->createForm(
             new SearchType(
                 $this->get('translator')
-            )
+            ),
+            array('q' => $term)
         );
 
         $form->handleRequest($request);
@@ -35,7 +37,7 @@ class DefaultController extends Controller
                 $this->generateUrl(
                     'sumocoders_frameworksearch_default_index',
                     array(
-                        'term' => $data['q']
+                        'q' => $data['q']
                     )
                 )
             );
