@@ -117,7 +117,7 @@ class Search
     public function search()
     {
         // grab the ids and their number of occurence from the search index
-        $idsAndWeightsPerClass = $this->getRepository()->search($this->getTerm());
+        $idsAndWeightsPerClass = (array) $this->getRepository()->search($this->getTerm());
 
         // process the results, and sort them by weight/class
         $foundItems = array();
