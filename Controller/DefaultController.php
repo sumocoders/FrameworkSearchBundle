@@ -15,7 +15,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 class DefaultController extends Controller
 {
     /**
-     * @Route("/search")
+     * @Route("/search.{_format}", defaults={"_format"="html"}, requirements={"_format"="html|json"})
      * @Template()
      */
     public function indexAction(Request $request)

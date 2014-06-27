@@ -1,0 +1,22 @@
+{% extends 'SumoCodersFrameworkCoreBundle::base.json.twig' %}
+
+{% block data %}
+    {
+        "results": [
+        {% if results %}
+            {% for result in results %}
+                {
+                    "title": "{{ result.title }}",
+                    "route": "{{ result.route }}",
+                    "bundle": "{{ result.bundle }}"
+                }{% if not loop.last %},{% endif %}
+            {% endfor %}
+        {% endif %}
+        ],
+        "count": {{ results|length }},
+        "term": "{{ term }}"
+    }
+{% endblock %}
+
+
+
