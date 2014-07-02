@@ -11,9 +11,19 @@
     }
   ],
   "minimum-stability": "dev",
+  "repositories": [
+    {
+      "type":"vcs",
+      "url":"git@git.sumocoders.be:tijs/frameworkerrorbundle.git"
+    },
+    {
+      "type":"vcs",
+      "url":"git@git.sumocoders.be:tijs/frameworkcorebundle.git"
+    }
+  ],
   "require": {
     "php": ">=5.3.3",
-    "symfony/symfony": "2.6.*@dev"
+    "sumocoders/framework-core-bundle": "dev-master"
   },
   "autoload": {
     "psr-0": { "SumoCoders\\FrameworkSearchBundle": "" }
