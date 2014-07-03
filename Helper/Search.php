@@ -129,7 +129,7 @@ class Search
         // create the event, and add our findings
         $event = new SearchEvent();
         $event->setFoundItems($foundItems);
-        $this->getEventDispatcher()->dispatch('search.search', $event);
+        $this->getEventDispatcher()->dispatch('framework_search.search', $event);
 
         // sort the results based on their weights
         $results = $event->getResults();

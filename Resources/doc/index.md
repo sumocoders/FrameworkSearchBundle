@@ -77,7 +77,7 @@ you can find an example-implementation.
             $user->getId()
         );
         // dispathc the event
-        $this->get('event_dispatcher')->dispatch('search.index.delete', $event);
+        $this->get('event_dispatcher')->dispatch('framework_search.index_delete', $event);
     }
 ```
 
@@ -97,7 +97,7 @@ services:
   kernel.listener.core_listener:
     class: SumoCoders\FrameworkXxxBundle\EventListener\SearchListener
     tags:
-      - { name: kernel.event_listener, event: search.search, method: onSearch }
+      - { name: kernel.event_listener, event: framework_search.search, method: onSearch }
 ```
 
 
