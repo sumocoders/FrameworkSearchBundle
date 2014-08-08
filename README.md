@@ -1,6 +1,9 @@
 # SumoCoders FrameworkSearchBundle
 
+[![Build Status](https://travis-ci.org/sumocoders/FrameworkSearchBundle.svg?branch=master)](https://travis-ci.org/sumocoders/FrameworkSearchBundle)
+
 The FrameworkSearchBundle will add some functionality related to search functionality.
+
 ## Documentation
 
 All documentation is located in the `Resources/doc/index.md`
