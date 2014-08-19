@@ -1,6 +1,6 @@
 # SumoCoders FrameworkSearchBundle
 
-[![Build Status](https://travis-ci.org/sumocoders/FrameworkSearchBundle.svg?branch=master)](https://travis-ci.org/sumocoders/FrameworkSearchBundle)
+[![Build Status](https://travis-ci.org/sumocoders/FrameworkSearchBundle.svg?branch=master)](https://travis-ci.org/sumocoders/FrameworkSearchBundle) [![Code Climate](https://codeclimate.com/github/sumocoders/FrameworkSearchBundle/badges/gpa.svg)](https://codeclimate.com/github/sumocoders/FrameworkSearchBundle)
 
 The FrameworkSearchBundle will add some functionality related to search functionality.
 
