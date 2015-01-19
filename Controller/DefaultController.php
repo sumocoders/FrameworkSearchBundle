@@ -22,9 +22,7 @@ class DefaultController extends Controller
     {
         $term = $request->get('q');
         $form = $this->createForm(
-            new SearchType(
-                $this->get('translator')
-            ),
+            new SearchType(),
             array('q' => $term)
         );
 
