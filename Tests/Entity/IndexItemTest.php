@@ -38,4 +38,33 @@ class IndexItemTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals($this->defaultData['field'], $this->indexItem->getField());
         $this->assertEquals($this->defaultData['value'], $this->indexItem->getValue());
     }
+
+    public function testCreateMultipleObjectsBasedOnProperties()
+    {
+        $properties = array(
+            'name' => 'John',
+            'surname' => 'Doe',
+            'email' => 'john.doe@example.com',
+            'nickname' => 'J. Doe',
+        );
+
+        $fakeObject = new \stdClass();
+        $fakeObject->name = 'John';
+        $fakeObject->surname = 'Doe';
+        $fakeObject->email = 'john.doe@example.com';
+        $fakeObject->nickname = 'J. Doe';
+
+        $indexItems = IndexItem::createMultipleObjectsBasedOnProperties(
+            $this->defaultData['objectType'],
+            $this->defaultData['otherId'],
+            array_keys($properties),
+            $fakeObject
+        );
+
+        foreach($indexItems as $index) {
+            /** @var SumoCoders\FrameworkSearchBundle\Entity\IndexItem $index*/
+            $this->assertInstanceOf('\SumoCoders\FrameworkSearchBundle\Entity\IndexItem', $index);
+            $this->assertEquals($properties[$index->getField()], $index->getValue());
+        }
+    }
 }

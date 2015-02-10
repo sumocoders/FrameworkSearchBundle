@@ -2,7 +2,6 @@
 
 namespace SumoCoders\FrameworkSearchBundle\Controller;
 
-use SumoCoders\FrameworkSearchBundle\Entity\SearchResult;
 use SumoCoders\FrameworkSearchBundle\Form\Type\SearchType;
 use SumoCoders\FrameworkSearchBundle\Helper\Search;
 use SumoCoders\FrameworkSearchBundle\Helper\SearchHelper;
