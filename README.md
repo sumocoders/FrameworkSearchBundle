@@ -1,6 +1,6 @@
 # SumoCoders FrameworkSearchBundle
 
-[![Build Status](https://travis-ci.org/sumocoders/FrameworkSearchBundle.svg?branch=master)](https://travis-ci.org/sumocoders/FrameworkSearchBundle) [![Code Climate](https://codeclimate.com/github/sumocoders/FrameworkSearchBundle/badges/gpa.svg)](https://codeclimate.com/github/sumocoders/FrameworkSearchBundle)
+[![Build Status](https://travis-ci.org/sumocoders/FrameworkSearchBundle.svg?branch=master)](https://travis-ci.org/sumocoders/FrameworkSearchBundle) [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/sumocoders/FrameworkSearchBundle/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/sumocoders/FrameworkSearchBundle/?branch=master) [![Code Coverage](https://scrutinizer-ci.com/g/sumocoders/FrameworkSearchBundle/badges/coverage.png?b=master)](https://scrutinizer-ci.com/g/sumocoders/FrameworkSearchBundle/?branch=master) [![SensioLabsInsight](https://insight.sensiolabs.com/projects/62b8d4eb-4ace-4a97-9597-0d279b99de88/mini.png)](https://insight.sensiolabs.com/projects/62b8d4eb-4ace-4a97-9597-0d279b99de88)
 
 The FrameworkSearchBundle will add some functionality related to search functionality.
 
