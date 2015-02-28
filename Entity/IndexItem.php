@@ -45,7 +45,7 @@ class IndexItem
 
     /**
      * @param string $objectType
-     * @param string $otherId
+     * @param mixed $otherId
      * @param string $field
      * @param string $value
      */
@@ -76,13 +76,13 @@ class IndexItem
     /**
      * Set otherId
      *
-     * @param string $otherId
+     * @param mixed $otherId
      *
      * @return IndexItem
      */
     public function setOtherId($otherId)
     {
-        $this->otherId = $otherId;
+        $this->otherId = (stringg) $otherId;
 
         return $this;
     }
