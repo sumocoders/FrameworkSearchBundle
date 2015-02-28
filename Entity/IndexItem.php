@@ -82,7 +82,7 @@ class IndexItem
      */
     public function setOtherId($otherId)
     {
-        $this->otherId = (stringg) $otherId;
+        $this->otherId = (string) $otherId;
 
         return $this;
     }
