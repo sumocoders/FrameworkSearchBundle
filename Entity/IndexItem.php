@@ -45,7 +45,7 @@ class IndexItem
 
     /**
      * @param string $objectType
-     * @param string $otherId
+     * @param mixed $otherId
      * @param string $field
      * @param string $value
      */
@@ -55,16 +55,6 @@ class IndexItem
         $this->setOtherId($otherId);
         $this->setField($field);
         $this->setValue($value);
-    }
-
-    /**
-     * Get id
-     *
-     * @return integer
-     */
-    public function getId()
-    {
-        return $this->id;
     }
 
     /**
@@ -86,13 +76,13 @@ class IndexItem
     /**
      * Set otherId
      *
-     * @param string $otherId
+     * @param mixed $otherId
      *
      * @return IndexItem
      */
     public function setOtherId($otherId)
     {
-        $this->otherId = $otherId;
+        $this->otherId = (string) $otherId;
 
         return $this;
     }
@@ -161,10 +151,10 @@ class IndexItem
      * @param string $class
      * @param string $id
      * @param array  $properties
-     * @param mixed  $object
+     * @param \stdClass  $object
      * @return array
      */
-    public static function createMultipleObjectsBasedOnProperties($class, $id, array $properties, $object)
+    public static function createMultipleObjectsBasedOnProperties($class, $id, array $properties, \stdClass $object)
     {
         $indexItems = array();
 

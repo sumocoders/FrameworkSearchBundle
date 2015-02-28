@@ -36,7 +36,7 @@ class SearchResult
 
     /**
      * @param string $class
-     * @param string $id
+     * @param mixed $id
      * @param string $bundle
      * @param string $title
      * @param string $route
@@ -83,11 +83,11 @@ class SearchResult
     }
 
     /**
-     * @param string $id
+     * @param mixed $id
      */
     protected function setId($id)
     {
-        $this->id = $id;
+        $this->id = (string) $id;
     }
 
     /**
