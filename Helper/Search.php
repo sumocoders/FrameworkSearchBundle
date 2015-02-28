@@ -42,7 +42,7 @@ class Search
         $this->setRepository($repository);
         $this->setEventDispatcher($eventDispatcher);
 
-        if ($term) {
+        if (null !== $term) {
             $this->setTerm($term);
         }
     }
