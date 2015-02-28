@@ -151,10 +151,10 @@ class IndexItem
      * @param string $class
      * @param string $id
      * @param array  $properties
-     * @param mixed  $object
+     * @param \stdClass  $object
      * @return array
      */
-    public static function createMultipleObjectsBasedOnProperties($class, $id, array $properties, $object)
+    public static function createMultipleObjectsBasedOnProperties($class, $id, array $properties, \stdClass $object)
     {
         $indexItems = array();
 
