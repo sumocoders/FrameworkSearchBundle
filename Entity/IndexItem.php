@@ -58,16 +58,6 @@ class IndexItem
     }
 
     /**
-     * Get id
-     *
-     * @return integer
-     */
-    public function getId()
-    {
-        return $this->id;
-    }
-
-    /**
      * @param mixed $objectType
      */
     public function setObjectType($objectType)
