@@ -4,7 +4,6 @@ namespace SumoCoders\FrameworkSearchBundle\Controller;
 
 use SumoCoders\FrameworkSearchBundle\Form\Type\SearchType;
 use SumoCoders\FrameworkSearchBundle\Helper\Search;
-use SumoCoders\FrameworkSearchBundle\Helper\SearchHelper;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
 use Symfony\Component\HttpFoundation\Request;
