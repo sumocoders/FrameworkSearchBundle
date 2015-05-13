@@ -1,0 +1,16 @@
+search:
+    forms:
+        buttons:
+            search: zoeken
+
+        labels:
+            term: zoekterm
+
+        placeholders:
+            term: zoek naar ...
+
+    header:
+        title:
+            index: resultaten voor %term%
+            indexWithoutTerm: zoeken
+            results: resultaten

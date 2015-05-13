@@ -1,0 +1,16 @@
+search:
+    forms:
+        buttons:
+            search: search
+
+        labels:
+            term: term
+
+        placeholders:
+            term: search for ...
+
+    header:
+        title:
+            index: results for %term%
+            indexWithoutTerm: search
+            results: results
