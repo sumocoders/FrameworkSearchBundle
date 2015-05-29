@@ -17,7 +17,7 @@ class SearchType extends AbstractType
             'q',
             'text',
             array(
-                'label' => 'forms.search.labels.search',
+                'label' => 'search.forms.labels.term',
                 'constraints' => array(
                     new NotBlank(),
                 ),
@@ -27,7 +27,7 @@ class SearchType extends AbstractType
                 'search',
                 'submit',
                 array(
-                    'label' => 'forms.search.buttons.search',
+                    'label' => 'search.forms.buttons.search',
                 )
             );
     }
