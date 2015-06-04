@@ -1,32 +1,36 @@
 {% extends '::base.html.twig' %}
 
 {% block header_title %}
-<h2>
-    {% if term %}
-    {{ 'search.header.title.index'|trans({'%term%' : term})|capitalize }}
-    {% else %}
-    {{ 'search.header.title.indexWithoutTerm'|trans|capitalize }}
-    {% endif %}
-</h2>
+    <h2>
+        {% if term %}
+            {{ 'search.header.title.index'|trans({'%term%' : term})|capitalize }}
+        {% else %}
+            {{ 'search.header.title.indexWithoutTerm'|trans|capitalize }}
+        {% endif %}
+    </h2>
 {% endblock %}
 
 {% block main %}
-{# @todo: Tijs fix this, make this inline #}
-{{ form_start(form, {'attributes': {'class':'form-inline'}}) }}
-{{ form_rest(form) }}
-{{ form_end(form) }}
+    {{ form_start(form, {'attr': {'class': 'form-inline'}}) }}
+        {{ form_rest(form) }}
+        <div class="form-group">
+            <button type="submit" class="btn">
+                {{ 'search.forms.buttons.search'|trans|capitalize }}
+            </button>
+        </div>
+    {{ form_end(form) }}
 
-{% if results %}
-<h3>{{ 'search.header.title.results'|trans({'%term%' : term})|capitalize }}</h3>
-<div class="list-group">
-    {% for result in results %}
-    <a href="{{ result.route }}" class="list-group-item">
-        {{ result.title }}
+    {% if results %}
+        <h3>{{ 'search.header.title.results'|trans({'%term%' : term})|capitalize }}</h3>
+        <div class="list-group">
+            {% for result in results %}
+                <a href="{{ result.route }}" class="list-group-item">
+                    {{ result.title }}
                     <span class="badge badge-info">
                         {{ result.bundle }}
                     </span>
-    </a>
-    {% endfor %}
-</div>
-{% endif %}
+                </a>
+            {% endfor %}
+        </div>
+    {% endif %}
 {% endblock %}
