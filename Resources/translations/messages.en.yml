@@ -1,4 +1,7 @@
 search:
+    breadcrumb:
+        search: search
+
     forms:
         buttons:
             search: search

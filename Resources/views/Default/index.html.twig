@@ -11,21 +11,26 @@
 {% endblock %}
 
 {% block main %}
-    {{ form(form) }}
+    {{ form_start(form, {'attr': {'class': 'form-inline'}}) }}
+        {{ form_rest(form) }}
+        <div class="form-group">
+            <button type="submit" class="btn btn-default">
+                {{ 'search.forms.buttons.search'|trans|capitalize }}
+            </button>
+        </div>
+    {{ form_end(form) }}
 
     {% if results %}
         <h3>{{ 'search.header.title.results'|trans({'%term%' : term})|capitalize }}</h3>
         <div class="list-group">
-        {% for result in results %}
+            {% for result in results %}
                 <a href="{{ result.route }}" class="list-group-item">
                     {{ result.title }}
                     <span class="badge badge-info">
                         {{ result.bundle }}
                     </span>
                 </a>
-        {% endfor %}
+            {% endfor %}
         </div>
     {% endif %}
 {% endblock %}
-
-

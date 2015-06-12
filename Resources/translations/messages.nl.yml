@@ -1,4 +1,7 @@
 search:
+    breadcrumb:
+        search: zoeken
+
     forms:
         buttons:
             search: zoeken

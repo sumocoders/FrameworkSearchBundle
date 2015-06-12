@@ -5,7 +5,6 @@ namespace SumoCoders\FrameworkSearchBundle\Controller;
 use SumoCoders\FrameworkSearchBundle\Form\Type\SearchType;
 use SumoCoders\FrameworkSearchBundle\Helper\Search;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-
 use Symfony\Component\HttpFoundation\Request;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
@@ -40,7 +39,7 @@ class DefaultController extends Controller
         }
 
         $results = null;
-        if ($term != '') {
+        if ('' != $term) {
             $repository = $this->getDoctrine()->getRepository('SumoCodersFrameworkSearchBundle:IndexItem');
             $dispatcher = $this->get('event_dispatcher');
             $search = new Search($repository, $dispatcher);
@@ -49,6 +48,25 @@ class DefaultController extends Controller
             $search->search();
 
             $results = $search->getResults();
+        }
+
+        // fix the breadCrumb
+        $this->get('framework.breadcrumb_builder')
+            ->setItems(array())
+            ->addSimpleItem(
+                'core.menu.home',
+                '/'
+            )
+            ->addSimpleItem(
+                'search.breadcrumb.search',
+                $this->generateUrl('sumocoders_frameworksearch_default_index')
+            );
+
+        if ('' != $term) {
+            $this->get('framework.breadcrumb_builder')
+                ->addSimpleItem(
+                    $term
+                );
         }
 
         return array(
