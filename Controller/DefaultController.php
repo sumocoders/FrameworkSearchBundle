@@ -50,18 +50,6 @@ class DefaultController extends Controller
             $results = $search->getResults();
         }
 
-        // fix the breadCrumb
-        $this->get('framework.breadcrumb_builder')
-            ->setItems(array())
-            ->addSimpleItem(
-                'core.menu.home',
-                '/'
-            )
-            ->addSimpleItem(
-                'search.breadcrumb.search',
-                $this->generateUrl('sumocoders_frameworksearch_default_index')
-            );
-
         if ('' != $term) {
             $this->get('framework.breadcrumb_builder')
                 ->addSimpleItem(
