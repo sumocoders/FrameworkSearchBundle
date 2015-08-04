@@ -17,7 +17,7 @@ class DefaultController extends Controller
      */
     public function indexAction(Request $request)
     {
-        $term = $request->get('q');
+        $term = $request->get('term');
         $form = $this->createForm(
             new SearchType(),
             array('q' => $term)
