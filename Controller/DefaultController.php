@@ -20,7 +20,7 @@ class DefaultController extends Controller
         $term = $request->get('term');
         $form = $this->createForm(
             new SearchType(),
-            array('q' => $term)
+            array('term' => $term)
         );
 
         $form->handleRequest($request);
@@ -32,7 +32,7 @@ class DefaultController extends Controller
                 $this->generateUrl(
                     'sumocoders_frameworksearch_default_index',
                     array(
-                        'q' => $data['q']
+                        'term' => $data['term']
                     )
                 )
             );
