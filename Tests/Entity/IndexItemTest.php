@@ -61,7 +61,7 @@ class IndexItemTest extends \PHPUnit_Framework_TestCase
             $fakeObject
         );
 
-        foreach($indexItems as $index) {
+        foreach ($indexItems as $index) {
             /** @var SumoCoders\FrameworkSearchBundle\Entity\IndexItem $index*/
             $this->assertInstanceOf('\SumoCoders\FrameworkSearchBundle\Entity\IndexItem', $index);
             $this->assertEquals($properties[$index->getField()], $index->getValue());
