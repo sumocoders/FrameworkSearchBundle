@@ -16,7 +16,7 @@ class SearchType extends AbstractType
     {
         $builder
             ->add(
-                'q',
+                'term',
                 'text',
                 array(
                     'widget_addon_prepend' => array(
