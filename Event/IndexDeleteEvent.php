@@ -22,16 +22,8 @@ class IndexDeleteEvent extends Event
      */
     public function __construct($objectType, $otherId)
     {
-        $this->setObjectType($objectType);
-        $this->setOtherId($otherId);
-    }
-
-    /**
-     * @param string $objectType
-     */
-    private function setObjectType($objectType)
-    {
         $this->objectType = $objectType;
+        $this->otherId = $otherId;
     }
 
     /**
@@ -40,14 +32,6 @@ class IndexDeleteEvent extends Event
     public function getObjectType()
     {
         return $this->objectType;
-    }
-
-    /**
-     * @param string $otherId
-     */
-    private function setOtherId($otherId)
-    {
-        $this->otherId = $otherId;
     }
 
     /**
