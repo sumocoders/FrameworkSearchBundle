@@ -19,8 +19,7 @@ class SearchTest extends \PHPUnit_Framework_TestCase
         $eventDispatcher = $this->getEventDispatcherMock($eventResult);
 
         $search = new Search($repository, $eventDispatcher, 'test');
-        $search->search();
-        $results = $search->getResults();
+        $results = $search->search();
 
         // our item should still be here, because it's found in both sql and event
         $this->assertCount(1, $results);
@@ -44,8 +43,7 @@ class SearchTest extends \PHPUnit_Framework_TestCase
         $eventDispatcher = $this->getEventDispatcherMock($eventResult);
 
         $search = new Search($repository, $eventDispatcher, 'test');
-        $search->search();
-        $results = $search->getResults();
+        $results = $search->search();
 
         // our item does not exist anymore
         $this->assertCount(0, $results);
@@ -64,8 +62,7 @@ class SearchTest extends \PHPUnit_Framework_TestCase
         $eventDispatcher = $this->getEventDispatcherMock($eventResult);
 
         $search = new Search($repository, $eventDispatcher, 'test');
-        $search->search();
-        $results = $search->getResults();
+        $results = $search->search();
 
         // our items should still be here, because they are found in both sql and event
         $this->assertCount(2, $results);
@@ -90,8 +87,7 @@ class SearchTest extends \PHPUnit_Framework_TestCase
         $eventDispatcher = $this->getEventDispatcherMock($eventResult);
 
         $search = new Search($repository, $eventDispatcher, 'test');
-        $search->search();
-        $results = $search->getResults();
+        $results = $search->search();
 
         // our items should still be here, because they are found in both sql and event
         $this->assertCount(3, $results);

@@ -25,11 +25,6 @@ class Search
     protected $repository;
 
     /**
-     * @var array
-     */
-    protected $results = array();
-
-    /**
      * @param IndexItemRepository      $repository
      * @param EventDispatcherInterface $eventDispatcher
      * @param string                   $term
@@ -42,14 +37,6 @@ class Search
         $this->repository = $repository;
         $this->eventDispatcher = $eventDispatcher;
         $this->term = $term;
-    }
-
-    /**
-     * @return array
-     */
-    public function getResults()
-    {
-        return $this->results;
     }
 
     /**
@@ -74,7 +61,7 @@ class Search
 
         // sort the results based on their weights
         $results = $event->getResults();
-        $this->results = $this->sortResults($idsAndWeightsPerClass, $results);
+        return $this->sortResults($idsAndWeightsPerClass, $results);
     }
 
     /**

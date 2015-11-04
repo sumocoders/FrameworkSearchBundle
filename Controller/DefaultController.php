@@ -44,9 +44,7 @@ class DefaultController extends Controller
             $dispatcher = $this->get('event_dispatcher');
             $search = new Search($repository, $dispatcher, $term);
 
-            $search->search();
-
-            $results = $search->getResults();
+            $results = $search->search();
         }
 
         if ('' != $term) {
