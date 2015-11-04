@@ -22,7 +22,7 @@ before_script:
   - travis_retry composer install --no-interaction --prefer-source --dev
 
 script:
-  - vendor/bin/phpunit --verbose --coverage-text  --coverage-clover=coverage.clover
+  - bin/phpunit --verbose --coverage-text  --coverage-clover=coverage.clover
 
 after_success:
   - if [[ "$TRAVIS_PHP_VERSION" != "hhvm" ]] && [[ "$TRAVIS_PHP_VERSION" != "7" ]]; then wget https://scrutinizer-ci.com/ocular.phar; fi
