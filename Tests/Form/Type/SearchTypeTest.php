@@ -9,7 +9,7 @@ use Symfony\Component\Form\Extension\Validator\Type\FormTypeValidatorExtension;
 use Symfony\Component\Validator\ConstraintViolationList;
 use Mopa\Bundle\BootstrapBundle\Form\Extension\WidgetFormTypeExtension;
 
-class TestedTypeTest extends TypeTestCase
+class SearchTypeTest extends TypeTestCase
 {
     protected function setUp()
     {
