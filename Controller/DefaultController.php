@@ -42,12 +42,9 @@ class DefaultController extends Controller
         if ('' != $term) {
             $repository = $this->getDoctrine()->getRepository('SumoCodersFrameworkSearchBundle:IndexItem');
             $dispatcher = $this->get('event_dispatcher');
-            $search = new Search($repository, $dispatcher);
+            $search = new Search($repository, $dispatcher, $term);
 
-            $search->setTerm($term);
-            $search->search();
-
-            $results = $search->getResults();
+            $results = $search->search();
         }
 
         if ('' != $term) {

@@ -25,11 +25,6 @@ class Search
     protected $repository;
 
     /**
-     * @var array
-     */
-    protected $results = array();
-
-    /**
      * @param IndexItemRepository      $repository
      * @param EventDispatcherInterface $eventDispatcher
      * @param string                   $term
@@ -39,76 +34,9 @@ class Search
         EventDispatcherInterface $eventDispatcher,
         $term = null
     ) {
-        $this->setRepository($repository);
-        $this->setEventDispatcher($eventDispatcher);
-
-        if (null !== $term) {
-            $this->setTerm($term);
-        }
-    }
-
-    /**
-     * @param \Symfony\Component\EventDispatcher\EventDispatcherInterface $eventDispatcher
-     */
-    public function setEventDispatcher(EventDispatcherInterface $eventDispatcher)
-    {
-        $this->eventDispatcher = $eventDispatcher;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getEventDispatcher()
-    {
-        return $this->eventDispatcher;
-    }
-
-    /**
-     * @param \SumoCoders\FrameworkSearchBundle\Entity\IndexItemRepository $repository
-     */
-    public function setRepository(IndexItemRepository $repository)
-    {
         $this->repository = $repository;
-    }
-
-    /**
-     * @return \SumoCoders\FrameworkSearchBundle\Entity\IndexItemRepository
-     */
-    public function getRepository()
-    {
-        return $this->repository;
-    }
-
-    /**
-     * @param array $results
-     */
-    public function setResults($results)
-    {
-        $this->results = $results;
-    }
-
-    /**
-     * @return array
-     */
-    public function getResults()
-    {
-        return $this->results;
-    }
-
-    /**
-     * @param string $term
-     */
-    public function setTerm($term)
-    {
+        $this->eventDispatcher = $eventDispatcher;
         $this->term = $term;
-    }
-
-    /**
-     * @return string
-     */
-    public function getTerm()
-    {
-        return $this->term;
     }
 
     /**
@@ -117,7 +45,7 @@ class Search
     public function search()
     {
         // grab the ids and their number of occurence from the search index
-        $idsAndWeightsPerClass = (array) $this->getRepository()->search($this->getTerm());
+        $idsAndWeightsPerClass = (array) $this->repository->search($this->term);
 
         // process the results, and sort them by weight/class
         $foundItems = array();
@@ -129,13 +57,11 @@ class Search
         // create the event, and add our findings
         $event = new SearchEvent();
         $event->setFoundItems($foundItems);
-        $this->getEventDispatcher()->dispatch('framework_search.search', $event);
+        $this->eventDispatcher->dispatch('framework_search.search', $event);
 
         // sort the results based on their weights
         $results = $event->getResults();
-        $sortedResults = $this->sortResults($idsAndWeightsPerClass, $results);
-
-        $this->setResults($sortedResults);
+        return $this->sortResults($idsAndWeightsPerClass, $results);
     }
 
     /**

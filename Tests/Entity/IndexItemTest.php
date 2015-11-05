@@ -67,4 +67,51 @@ class IndexItemTest extends \PHPUnit_Framework_TestCase
             $this->assertEquals($properties[$index->getField()], $index->getValue());
         }
     }
+
+    public function testCreateMultipleObjectsBasedOnPropertiesFromObject()
+    {
+        $properties = array(
+            'name' => 'John',
+            'surname' => 'Doe',
+        );
+        $object = new Person('John', 'Doe');
+
+        $indexItems = IndexItem::createMultipleObjectsBasedOnProperties(
+            $this->defaultData['objectType'],
+            $this->defaultData['otherId'],
+            array_keys($properties),
+            $object
+        );
+
+        foreach ($indexItems as $index) {
+            /** @var SumoCoders\FrameworkSearchBundle\Entity\IndexItem $index*/
+            $this->assertInstanceOf('\SumoCoders\FrameworkSearchBundle\Entity\IndexItem', $index);
+            $this->assertEquals($properties[$index->getField()], $index->getValue());
+        }
+    }
+}
+
+/**
+ * Test class to test building an index item from a real object
+ */
+final class Person
+{
+    private $name;
+    private $surname;
+
+    public function __construct($name, $surname)
+    {
+        $this->name = $name;
+        $this->surname = $surname;
+    }
+
+    public function getName()
+    {
+        return $this->name;
+    }
+
+    public function getSurname()
+    {
+        return $this->surname;
+    }
 }
