@@ -3,6 +3,7 @@
 namespace SumoCoders\FrameworkSearchBundle\Form\Type;
 
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 use Symfony\Component\Validator\Constraints\NotBlank;
@@ -17,7 +18,7 @@ class SearchType extends AbstractType
         $builder
             ->add(
                 'term',
-                'text',
+                TextType::class,
                 array(
                     'widget_addon_prepend' => array(
                         'icon' => 'search',
