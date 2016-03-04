@@ -2,7 +2,7 @@ services:
   kernel.listener.search_index_listener:
     class: SumoCoders\FrameworkSearchBundle\EventListener\IndexListener
     arguments:
-      - @doctrine.orm.entity_manager
+      - "@doctrine.orm.entity_manager"
     tags:
       - { name: kernel.event_listener, event: framework_search.index_update, method: onIndexUpdate }
       - { name: kernel.event_listener, event: framework_search.index_delete, method: onIndexDelete }

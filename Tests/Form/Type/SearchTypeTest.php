@@ -33,8 +33,7 @@ class SearchTypeTest extends TypeTestCase
     {
         $formData = array('term' => 'wouter');
 
-        $type = new SearchType();
-        $form = $this->factory->create($type);
+        $form = $this->factory->create(SearchType::class);
 
         // submit the data to the form directly
         $form->submit($formData);
