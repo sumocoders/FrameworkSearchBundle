@@ -117,7 +117,7 @@ class SearchTest extends \PHPUnit_Framework_TestCase
 
         $eventDispatcher->method('dispatch')
             ->will($this->returnCallback(
-                function ($eventName, $event) use ($eventResult) {
+                function($eventName, $event) use ($eventResult) {
                     foreach ($eventResult as $item) {
                         $event->addResult($item);
                     }

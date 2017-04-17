@@ -99,6 +99,10 @@ final class Person
     private $name;
     private $surname;
 
+    /**
+     * @param string $name
+     * @param string $surname
+     */
     public function __construct($name, $surname)
     {
         $this->name = $name;
