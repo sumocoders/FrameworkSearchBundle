@@ -63,7 +63,7 @@ you can find an example-implementation.
             'SumoCoders\FrameworkUserBundle\Entity\User',
             $user->getId()
         );
-        // dispathc the event
+        // dispatch the event
         $this->get('event_dispatcher')->dispatch('framework_search.index_delete', $event);
     }
 ```
