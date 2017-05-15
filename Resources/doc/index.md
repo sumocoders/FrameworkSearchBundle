@@ -44,9 +44,25 @@ When this event is triggered your bundle will need to inspect the event and has
 the responsibility to fill the results based on the ids that are passed. Below
 you can find an example-implementation.
 
-### Add entities/items into the search index
+### Add or update entities/items into the search index
 
+```php
 
+    // check if the search bundle is registered
+    if (array_key_exists(
+        'SumoCodersFrameworkSearchBundle',
+        $this->container->getParameter('kernel.bundles')
+    )
+    ) {
+        // create update event
+        $event = new IndexUpdateEvent();
+        // add index fields to update event
+        $event->addObject(new IndexItem(User::class, $user->getId(), 'email', $user->getEmail()));
+        $event->addObject(new IndexItem(User::class, $user->getId(), 'username', $user->getUsername()));
+        // dispatch the event
+        $this->get('event_dispatcher')->dispatch('framework_search.index_update', $event);
+    }
+```
 
 ### Remove entities/items from the search index
 
@@ -63,7 +79,7 @@ you can find an example-implementation.
             'SumoCoders\FrameworkUserBundle\Entity\User',
             $user->getId()
         );
-        // dispathc the event
+        // dispatch the event
         $this->get('event_dispatcher')->dispatch('framework_search.index_delete', $event);
     }
 ```
@@ -71,6 +87,21 @@ you can find an example-implementation.
 ### Create an event listener
 
 ```php
+    public function onSearch(SearchEvent $event): void
+    {
+        $users = $this->repository->findById($event->getFoundItems()[User::class]);
+        $class = User::class;
+        $bundle = ucfirst($this->translator->trans('user.header.title'));
+        foreach ($users as $user) {
+            $event->addResult(new SearchResult(
+                $class,
+                $user->getId(),
+                $bundle,
+                $user->getUsername() . '(' . $user->getEmail() . ')',
+                $this->router->generate('route_to_detail_page')
+            ));
+        }
+    }
 ```
 
 ### Register the event listener
