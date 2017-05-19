@@ -1,0 +1,7 @@
+@import '../../../../../../../../src/SumoCoders/FrameworkCoreBundle/Resources/assets/sass/bootstrap-variables';
+
+.alert {
+  &.alert-search-results {
+    margin-top: $padding-large-vertical;
+  }
+}

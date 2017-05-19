@@ -12,6 +12,8 @@ search:
         placeholders:
             term: zoek naar ...
 
+        no_results: Geen resultaten gevonden.
+
     header:
         title:
             index: resultaten voor %term%
