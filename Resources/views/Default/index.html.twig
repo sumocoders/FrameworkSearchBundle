@@ -1,5 +1,11 @@
 {% extends '::base.html.twig' %}
 
+{% block stylesheets %}
+    {{ parent() }}
+
+    <link rel="stylesheet" href="{{ asset('assets/css/search.css') }}" />
+{% endblock %}
+
 {% block header_title %}
     <h2>
         {% if term %}
@@ -31,6 +37,10 @@
                     </span>
                 </a>
             {% endfor %}
+        </div>
+    {% elseif term %}
+        <div class="alert alert-info alert-search-results">
+            {{ 'search.forms.no_results'|trans }}
         </div>
     {% endif %}
 {% endblock %}
