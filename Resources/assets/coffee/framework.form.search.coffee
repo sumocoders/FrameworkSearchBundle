@@ -12,7 +12,7 @@ class SearchForm extends Form
         using: (position, elements) ->
           newPosition =
             left: position.left
-            top: position.top
+            top: position.top + $searchField.outerHeight()
             bottom: 'auto'
             margin: 0
           elements.element.element.css(newPosition)
