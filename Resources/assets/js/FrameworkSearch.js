@@ -1,75 +1,74 @@
 export class SearchForm {
-
-  constructor() {
-    this.form = $('[data-form-class="SearchForm"]');
-    this.initSearch();
+  constructor () {
+    this.form = $('[data-form-class="SearchForm"]')
+    this.initSearch()
   }
 
-  initSearch() {
-    let $searchField = $('input[name=term]', this.form),
-        route = $(this.form).attr('action') + '.json';
+  initSearch () {
+    let $searchField = $('input[name=term]', this.form)
+    let route = $(this.form).attr('action') + '.json'
 
     $searchField.autocomplete({
       position: {
-        using(position, elements) {
+        using (position, elements) {
           let newPosition = {
             left: position.left,
             top: position.top + $searchField.outerHeight(),
             bottom: 'auto',
             margin: 0
-          };
-          return elements.element.element.css(newPosition);
+          }
+          elements.element.element.css(newPosition)
         }
       },
-      source(request, response) {
+      source (request, response) {
         return $.ajax({
           type: 'GET',
           url: route,
-          data: { term: request.term },
-          success(data) {
-            let items = [];
+          data: {term: request.term},
+          success (data) {
+            let items = []
             for (let value of Array.from(data.data.results)) {
               items.push(
-                  {
-                    value
-                  }
-              );
+                {
+                  value
+                }
+              )
             }
-            return response(items);
+            return response(items)
           }
-        });
+        })
       },
-      select(e, ui) {
-        e.preventDefault();
-        if (ui.item.value.route != null) {
-          return document.location = ui.item.value.route;
-        } else if (ui.item.value.value != null) {
-          return ui.item.value.value;
+      select (e, ui) {
+        e.preventDefault()
+        if (ui.item.value.route !== null) {
+          document.location = ui.item.value.route
+        } else if (ui.item.value.value !== null) {
+          return ui.item.value.value
         } else {
-          return ui.item.label;
+          return ui.item.label
         }
       },
-      focus(e, ui) {
-        e.preventDefault();
-        return $(e.target).val(ui.item.value.title);
+      focus (e, ui) {
+        e.preventDefault()
+        return $(e.target).val(ui.item.value.title)
       }
-    });
+    })
 
-    $searchField.each((idx,element) => {
-      return $(element).data('ui-autocomplete')._renderItem = this.renderItem;
-    });
+    $searchField.each((idx, element) => {
+      $(element).data('ui-autocomplete')._renderItem = this.renderItem
+    })
   }
 
-  renderItem(ul, item) {
+  renderItem (ul, item) {
     $('<li>')
-        .append(
-            $('<a>').append(
-                item.value.title +
-                '<small class="muted"> (' + item.value.bundle + ')</small>'
-            )
+      .append(
+        $('<a>').append(
+          item.value.title +
+          '<small class="muted"> (' + item.value.bundle + ')</small>'
         )
-        .appendTo(ul)
+      )
+      .appendTo(ul)
   }
 }
 
-new SearchForm();
+window.searchForm = new SearchForm()
