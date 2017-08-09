@@ -19,7 +19,7 @@ class DefaultController extends Controller
     {
         $term = $request->get('term');
         $form = $this->createForm(
-            new SearchType(),
+            SearchType::class,
             array('term' => $term)
         );
 
