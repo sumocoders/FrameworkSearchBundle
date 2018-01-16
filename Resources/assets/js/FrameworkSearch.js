@@ -13,7 +13,7 @@ export class SearchForm {
         using (position, elements) {
           let newPosition = {
             left: position.left,
-            top: position.top + $searchField.outerHeight(),
+            top: position.top,
             bottom: 'auto',
             margin: 0
           }
@@ -60,7 +60,7 @@ export class SearchForm {
   }
 
   renderItem (ul, item) {
-    $('<li>')
+    return $('<li>')
       .append(
         $('<a>').append(
           item.value.title +
