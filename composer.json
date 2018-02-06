@@ -14,14 +14,14 @@
   "require": {
     "php": "^5.5 || ^7.0",
 
-    "symfony/event-dispatcher": "^3.3",
+    "symfony/event-dispatcher": "^3.3||^4.0",
     "doctrine/orm": "^2.5"
   },
   "require-dev": {
-    "symfony/form": "^3.3",
-    "symfony/validator": "^3.3",
+    "symfony/form": "^3.3||^4.0",
+    "symfony/validator": "^3.3||^4.0",
     "mopa/bootstrap-bundle": "^3.0",
-    "symfony/phpunit-bridge": "^3.3",
+    "symfony/phpunit-bridge": "^4.0",
     "phpunit/phpunit": "^5.2 || ^4.8"
   },
   "autoload": {
